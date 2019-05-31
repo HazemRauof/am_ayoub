@@ -1,16 +1,150 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{% static 'reader/images/icons/favicon.ico' %}"/>
+    <!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'reader/vendor/bootstrap/css/bootstrap.min.css' %}">
+    <!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'reader/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %} ">
+    <!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'reader/vendor/animate/animate.css' %}">
+    <!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'reader/vendor/css-hamburgers/hamburgers.min.css' %}">
+    <!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'reader/vendor/animsition/css/animsition.min.css' %}">
+    <!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'reader/vendor/select2/select2.min.css' %}">
+    <!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'reader/vendor/daterangepicker/daterangepicker.css' %}">
+    <!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'reader/css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'reader/css/main.css' %}">
+    <!--===============================================================================================-->
 </head>
 <body>
 {% block content %}
 
-<h2>Sign Up</h2>
+
 <form method="post">
     {% csrf_token %}
-    {{ form }}
+
+    <div class="container-contact100">
+
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form">
+				<span class="contact100-form-title">
+					Create an account
+				</span>
+
+				<div class="wrap-input100 validate-input" data-validate="Please enter your first name">
+					<input class="input100" type="text" name="First_name" required id="id_First_name" placeholder="First Name">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate="Please enter your last name">
+					<input class="input100" type="text" name="Last_name" required id="id_Last_name" placeholder="Last Name">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Please enter your email: e@a.x">
+					<input class="input100" type="text" name="Email" required id="id_Email" placeholder="E-mail">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Please enter your phone">
+					<input class="input100" type="text"  name="phone" required id="id_phone" placeholder="Phone">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Please enter your password">
+					<input class="input100" type="password" required id = "id_Password" name="Password" placeholder="password">
+					<span class="focus-input100"></span>
+				</div>
+
+<!--				<div class="wrap-input100 validate-input" data-validate = "Please enter your password again">-->
+<!--					<input class="input100" type="password" name="Repass" placeholder="Re-Type password">-->
+<!--					<span class="focus-input100"></span>-->
+<!--				</div>-->
+
+<!--				<div class="wrap-input100 validate-input" data-validate = "Please enter your favourite writer">-->
+<!--					<input class="input100" type="text" name="Repass" placeholder="Most favourite writer">-->
+<!--					<span class="focus-input100"></span>-->
+<!--				</div>-->
+
+<!--				<div class="wrap-input100 validate-input" data-validate = "Please enter your prefered category">-->
+<!--					<input class="input100" type="text" name="Repass" placeholder="Most favourite category">-->
+<!--					<span class="focus-input100"></span>-->
+<!--				</div>-->
+
+
+				<label class="input1001">Choose your account type</label>
+
+
+				<div class="" data-validate="please choose your prefered category">
+					<select class="input10011"  name="u_type" required id="id_u_type"  placeholder="Favourite Catergory">
+						{% for role in form.u_type%}
+	  					<option>{{role}}</option>
+						{%endfor%}
+					</select>
+					<span class="focus-input100"></span>
+				</div>
+
+
+
+
+
+
+
+
+
+				<div class="container-contact100-form-btn">
+					<button class="contact100-form-btn">
+						<span>
+							<i class="fa fa-paper-plane-o m-r-6" aria-hidden="true"></i>
+							Register
+						</span>
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
     <button type="submit"> Sign Up </button>
 </form>
 {% endblock %}

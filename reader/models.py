@@ -15,11 +15,11 @@ class User(models.Model):
     Last_name = models.CharField(max_length=50)
     Email = models.EmailField(max_length=100,unique=True)
     Password = models.CharField(max_length=20)
-    u_type = models.ForeignKey(Role , on_delete=models.CASCADE)
+    u_type = models.ForeignKey(Role, on_delete=models.CASCADE)
     names_of_books = models.DateField(null=True)
     categories = models.DateField(null=True)
     phone = models.CharField(max_length=14)
-    Gender = models.CharField(max_length=10)
+
 
 class Reader(models.Model):
 
@@ -38,4 +38,10 @@ class SystemAdmin(models.Model):
 class UserForm(ModelForm):
     class Meta:
         model = User
-        fields = ['First_name','Last_name','Email','Password','phone','Gender']
+        fields = ['First_name','Last_name','Email','Password','phone','u_type']
+
+'''class ReaderForm(ModelForm):
+    class Meta:
+        model = Reader
+        fields = ['Favourite_writer','Prefered_category']
+'''
